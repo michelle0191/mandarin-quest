@@ -93,6 +93,7 @@ function renderHUD() {
   const known = Object.values(progress.known).filter(v => v >= 2).length;
   $("#known").textContent = known;
   $("#total").textContent = D.characters.length;
+  $("#streak").textContent = progress.streak || 0;
 }
 
 /* =====================================================================
@@ -361,7 +362,12 @@ function renderQuiz() {
 
   let options;
   if (quizState.type === "tone") {
-    options = shuffle([{label:"1st",value:1},{label:"2nd",value:2},{label:"3rd",value:3},{label:"4th",value:4}]);
+    // Include all five tones (incl. neutral) and always keep the correct one,
+    // otherwise neutral-tone characters (的 了 吗 …) are unanswerable.
+    const allTones = [{label:"1st",value:1},{label:"2nd",value:2},{label:"3rd",value:3},{label:"4th",value:4},{label:"Neutral",value:0}];
+    const correctOpt = allTones.find(o => o.value === c.tone);
+    const others = shuffle(allTones.filter(o => o.value !== c.tone)).slice(0, 3);
+    options = shuffle([correctOpt, ...others]);
   } else {
     const field = quizState.type === "pinyin" ? "py" : null;
     const correct = quizState.type === "pinyin" ? c.py : (c.words && c.words[0] ? c.words[0].mean : c.sound);
@@ -526,11 +532,15 @@ function init() {
   window.speak = speak; window.fcFlip = fcFlip; window.fcNext = fcNext; window.fcShuffle = fcShuffle;
   window.startQuiz = startQuiz; window.pronNext = pronNext; window.startMatching = startMatching;
   window.startMemory = startMemory; window.showScreen = showScreen;
-  setupSortZones(); renderHUD(); showScreen("home");
+  setupSortZones();
   const today = new Date().toDateString();
   if (progress.lastDay !== today) {
-    progress.streak += 1; progress.lastDay = today; store.save(progress); renderHUD();
+    const yesterday = new Date(Date.now() - 864e5).toDateString();
+    progress.streak = (progress.lastDay === yesterday) ? (progress.streak + 1) : 1;
+    progress.lastDay = today;
+    store.save(progress);
   }
+  renderHUD(); showScreen("home");
 }
 document.addEventListener("DOMContentLoaded", () => {
   try { init(); }

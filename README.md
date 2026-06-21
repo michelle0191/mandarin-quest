@@ -4,7 +4,7 @@ Interactive PWA for learning Simplified Chinese characters, pinyin, and tones.
 
 ## What's Inside
 
-**100 essential HSK 1-2 characters** with:
+**97 essential HSK 1-2 characters** with:
 - Pinyin (with tone marks)
 - Tone number (1-4 + neutral)
 - Radical
@@ -44,7 +44,7 @@ mandarin-quest/
 ├── index.html      # App shell + all screens
 ├── styles.css      # Full styling
 ├── app.js          # Game logic (8 games)
-├── data.js         # Character data (100 chars, pinyin, tones, words)
+├── data.js         # Character data (97 chars, pinyin, tones, words)
 ├── manifest.json   # PWA manifest
 ├── sw.js           # Service worker (offline cache)
 ├── README.md       # This file

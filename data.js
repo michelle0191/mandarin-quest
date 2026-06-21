@@ -1,5 +1,5 @@
 // Mandarin Quest — Simplified Chinese learning data
-// 100 essential HSK 1-2 characters with pinyin, tones, radicals, and example words.
+// 97 essential HSK 1-2 characters with pinyin, tones, radicals, and example words.
 
 const ZH_DATA = {
   // Tone system: 1=high, 2=rising, 3=dipping, 4=falling, 0=neutral
@@ -49,7 +49,7 @@ const ZH_DATA = {
     // ---- Actions (16) ----
     { ch: "吃", py: "chī", tone: 1, radical: "口", sound: "chir", memory: "Mouth 口 + 乞 — mouth begs to eat.", words: [{zh:"吃饭",py:"chīfàn",mean:"eat a meal"},{zh:"吃苹果",py:"chī píngguǒ",mean:"eat an apple"}], hsk: 1 },
     { ch: "喝", py: "hē", tone: 1, radical: "口", sound: "huh", memory: "Mouth 口 + 曷 — mouth with liquid going in.", words: [{zh:"喝水",py:"hē shuǐ",mean:"drink water"},{zh:"喝茶",py:"hē chá",mean:"drink tea"}], hsk: 1 },
-    { ch: "看", py: "kàn", tone: 4, radical: "目", sound: "kan", memory: "Hand 目 over eyes — shading eyes to look/see.", words: [{zh:"看书",py:"kàn shū",mean:"read a book"},{zh:"看见",py:"kànjiàn",mean:"to see"}], hsk: 1 },
+    { ch: "看", py: "kàn", tone: 4, radical: "目", sound: "kan", memory: "Hand 手 over eye 目 — shading the eyes to look/see.", words: [{zh:"看书",py:"kàn shū",mean:"read a book"},{zh:"看见",py:"kànjiàn",mean:"to see"}], hsk: 1 },
     { ch: "听", py: "tīng", tone: 1, radical: "口", sound: "ting", memory: "Mouth 口 + 斤 — listen with your mouth (ears) open.", words: [{zh:"听见",py:"tīngjiàn",mean:"to hear"},{zh:"好听",py:"hǎotīng",mean:"sounds good"}], hsk: 1 },
     { ch: "说", py: "shuō", tone: 1, radical: "讠", sound: "shwaw", memory: "Speech 讠+ 兑 (duì) — words coming out.", words: [{zh:"说话",py:"shuōhuà",mean:"to speak"},{zh:"小说",py:"xiǎoshuō",mean:"novel"}], hsk: 1 },
     { ch: "读", py: "dú", tone: 2, radical: "讠", sound: "doo", memory: "Speech 讠+ 卖 (mài) — selling words = reading.", words: [{zh:"读书",py:"dú shū",mean:"read books"},{zh:"读者",py:"dúzhě",mean:"reader"}], hsk: 1 },
@@ -60,7 +60,7 @@ const ZH_DATA = {
     { ch: "买", py: "mǎi", tone: 3, radical: "买", sound: "my", memory: "A net over goods — buying things.", words: [{zh:"买东西",py:"mǎi dōngxi",mean:"go shopping"},{zh:"买单",py:"mǎi dān",mean:"pay the bill"}], hsk: 1 },
     { ch: "开", py: "kāi", tone: 1, radical: "廾", sound: "kie", memory: "Two hands opening a door — open/start.", words: [{zh:"开门",py:"kāi mén",mean:"open door"},{zh:"开始",py:"kāishǐ",mean:"begin"}], hsk: 1 },
     { ch: "学", py: "xué", tone: 2, radical: "子", sound: "shweh", memory: "Roof over a child 子 with hands learning above — school.", words: [{zh:"学习",py:"xuéxí",mean:"study"},{zh:"学校",py:"xuéxiào",mean:"school"}], hsk: 1 },
-    { ch: "爱", py: "ài", tone: 4, radical: "爫", sound: "eye", memory: "Hand 爫 + friend 友 + heart 心 — love is friendship from the heart.", words: [{zh:"爱情",py:"àiqíng",mean:"love"},{zh:"爱好",py:"àihào",mean:"hobby"}], hsk: 1 },
+    { ch: "爱", py: "ài", tone: 4, radical: "爫", sound: "eye", memory: "Hand 爫 + cover 冖 + friend 友 — simplified 爱 drops the old heart 心, keeping the friend.", words: [{zh:"爱情",py:"àiqíng",mean:"love"},{zh:"爱好",py:"àihào",mean:"hobby"}], hsk: 1 },
     { ch: "想", py: "xiǎng", tone: 3, radical: "心", sound: "shyang", memory: "Tree/eye 相 + heart 心 — thinking with the heart.", words: [{zh:"我想",py:"wǒ xiǎng",mean:"I think/want"},{zh:"想法",py:"xiǎngfǎ",mean:"idea"}], hsk: 1 },
     { ch: "坐", py: "zuò", tone: 4, radical: "土", sound: "dzwaw", memory: "Two people 人 on the ground 土 — sitting.", words: [{zh:"请坐",py:"qǐng zuò",mean:"please sit"},{zh:"坐下",py:"zuò xià",mean:"sit down"}], hsk: 2 },
 
@@ -101,7 +101,7 @@ const ZH_DATA = {
     // ---- Food & daily life (10) ----
     { ch: "茶", py: "chá", tone: 2, radical: "艹", sound: "chah", memory: "Grass 艹 + person 人 + tree 木 — tea leaves picked by people from trees.", words: [{zh:"喝茶",py:"hē chá",mean:"drink tea"},{zh:"茶馆",py:"cháguǎn",mean:"teahouse"}], hsk: 1 },
     { ch: "饭", py: "fàn", tone: 4, radical: "饣", sound: "fan", memory: "Food 饣 + 反 (fǎn) — a meal.", words: [{zh:"吃饭",py:"chīfàn",mean:"eat"},{zh:"早饭",py:"zǎofàn",mean:"breakfast"}], hsk: 1 },
-    { ch: "水", py: "shuǐ", tone: 3, radical: "水", sound: "shway", memory: "Flowing water pictogram.", words: [{zh:"喝水",py:"hē shuǐ",mean:"drink water"},{zh:"矿泉水",py:"kuángquán shuǐ",mean:"mineral water"}], hsk: 1, dup: true },
+    { ch: "水", py: "shuǐ", tone: 3, radical: "水", sound: "shway", memory: "Flowing water pictogram.", words: [{zh:"喝水",py:"hē shuǐ",mean:"drink water"},{zh:"矿泉水",py:"kuàngquán shuǐ",mean:"mineral water"}], hsk: 1, dup: true },
     { ch: "果", py: "guǒ", tone: 3, radical: "木", sound: "gwaw", memory: "Tree 木 with a round fruit on top — fruit.", words: [{zh:"苹果",py:"píngguǒ",mean:"apple"},{zh:"水果",py:"shuǐguǒ",mean:"fruit"}], hsk: 1 },
     { ch: "米", py: "mǐ", tone: 3, radical: "米", sound: "mee", memory: "Grain scattered — the dots represent rice grains.", words: [{zh:"米饭",py:"mǐfàn",mean:"rice"},{zh:"玉米",py:"yùmǐ",mean:"corn"}], hsk: 2 },
     { ch: "肉", py: "ròu", tone: 4, radical: "肉", sound: "row", memory: "An animal with ribs visible — meat.", words: [{zh:"猪肉",py:"zhūròu",mean:"pork"},{zh:"牛肉",py:"niúròu",mean:"beef"}], hsk: 2 },
