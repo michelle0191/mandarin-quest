@@ -187,20 +187,22 @@ function startMatching() {
       left: w.zh, right: w.mean, leftIsText: true
     }));
   }
+  pairs = pairs.map((p, i) => ({ ...p, pairId: i }));
   matchState = { left: shuffle(pairs), right: shuffle(pairs), selected: null, done: 0, total: pairs.length, mode };
   renderMatching();
 }
 function renderMatching() {
   const left = $("#matchLeft"), right = $("#matchRight");
   left.innerHTML = ""; right.innerHTML = "";
-  matchState.left.forEach((p, i) => left.appendChild(matchTile(p.left, "L" + i, p.leftIsText)));
-  matchState.right.forEach((p, i) => right.appendChild(matchTile(p.right, "R" + i, !p.leftIsText)));
+  matchState.left.forEach((p, i) => left.appendChild(matchTile(p.left, "L" + i, p.leftIsText, p.pairId)));
+  matchState.right.forEach((p, i) => right.appendChild(matchTile(p.right, "R" + i, !p.leftIsText, p.pairId)));
   $("#matchProgress").style.width = (matchState.done / matchState.total * 100) + "%";
 }
-function matchTile(content, id, big) {
+function matchTile(content, id, big, pairId) {
   const t = document.createElement("div");
   t.className = "match-tile";
   t.dataset.id = id; t.dataset.content = content;
+  t.dataset.pair = pairId;
   t.innerHTML = `<div class="${big ? "big hanzi" : "sub"}">${content}</div>`;
   t.onclick = () => onMatchClick(t);
   return t;
@@ -211,7 +213,7 @@ function onMatchClick(tile) {
   const sameCol = tile.dataset.id[0] === matchState.selected.dataset.id[0];
   if (tile === matchState.selected) { tile.classList.remove("selected"); matchState.selected = null; return; }
   if (sameCol) { matchState.selected.classList.remove("selected"); tile.classList.add("selected"); matchState.selected = tile; return; }
-  if (tile.dataset.content === matchState.selected.dataset.content) {
+  if (tile.dataset.pair === matchState.selected.dataset.pair) {
     tile.classList.add("correct"); matchState.selected.classList.add("correct");
     matchState.done++; bumpXP(5); toast("✓ Correct! +5", "good");
     speak(matchState.selected.dataset.content);
